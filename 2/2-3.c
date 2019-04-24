@@ -3,18 +3,17 @@
 
 int main(void)
 {
-    int *x;
-    int i;                      // int형을 가리키는 포인터를 생성
-    x = calloc(1, sizeof(int)); // int만큼의 사이즈를 1개만큼 담을 수 있는 메모리를 포인터 x에 할당
-    if (x == NULL)
-    {                                 // 포인터 x 가 NULL 값을 가지면 메모리 동적 할당에 실패한 것임
-        puts("failed to get memory"); // 실패했다는 오류 메시지를 띄워줌
+    int *x;                     // Create pointer x
+    x = calloc(1, sizeof(int)); // Create memory as 1 integer size for pointer x
+    if (x == NULL)              // If x equles with NULL
+    {
+        puts("Fail to assign memory. ");
     }
     else
-    {                            // 성공했을때
-        *x = 57;                 // 포인터 x이 가리키는 메모리값에 정수 57을 할당
-        printf("*x = %d\n", *x); // 출력해주고
-        free(x);                 // x에 할당되어졌던 메모리를 해제해줌.
+    {
+        *x = 57; // If successed for assigning memory, then put 57 to pointer x's value
+        printf("*x = %d\n", *x);
+        free(x); // If you finished using pointer x, then you should remove memory for pointer x using free method
     }
     return 0;
 }
